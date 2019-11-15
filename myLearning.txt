@@ -1,0 +1,324 @@
+Source:
+Angular Material Themes https://medium.com/@tomastrajan/the-complete-guide-to-angular-material-themes-4d165a9d24d1
+Loading Angular App: https://medium.com/@tomastrajan/how-to-style-angular-application-loading-with-angular-cli-like-a-boss-cdd4f5358554
+https://www.smashingmagazine.com/2019/02/angular-application-bootstrap/
+https://www.techiediaries.com/angular-bootstrap/
+
+
+full Angular project on Github: https://tomastrajan.github.io/angular-ngrx-material-starter#/about
+
+O. PROJECT DEVELOPING
+The following steps were done:
+1) Create project with support for scss
+ng new angular-bootstrap-example --style scss --prefix abe
+2) Install Bootstrap and import Bootstrap module to use grid layouts
+npm install bootstrap --save
+@import "styles-variables";
+@import '~bootstrap/scss/bootstrap-reboot';
+@import '~bootstrap/scss/bootstrap-grid';
+3) Install Angular Material
+npm i -S @angular/material @angular/cdk @angular/animations
+4) Import Angular Material
+- style.scss
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+- app.module.ts
+import { MatCardModule } from '@angular/material/card';
+imports: [MatCardModule]
+- template
+<mat-card class="col-md-6">1</mat-card>
+5) Reset Bootsrap's styling to suit Angular Material
+
+I. RESPONSIVE WEB DESIGN
+
+source: https://www.w3schools.com/css/css_rwd_intro.asp
+
+Responsive web design makes your web page look good on all devices.
+Responsive web design uses only HTML and CSS.
+It is called responsive web design when you use CSS and HTML to resize, hide, shrink, enlarge, or move the content to make it look good on any screen.
+
+1. Use <meta name="viewport" content="width=device-width, initial-scale=1.0"> to support responsive website design.
+2. Do not use absolute CSS widths for page elements. Instead, consider using relative width values, such as width: 100%.
+3. Use CSS media queries to apply different styling for small and large screens.
+4. Use css box-sizing: border-box instead of content-box for better, intuitive responsive web design, 
+especially when the content must be displayed  on different divices (desctops, laptops, tablets, mobiles).
+source: https://css-tricks.com/box-sizing/
+
+Today, the current versions of all browsers use the original 
+"width or height + padding + border = actual width or height" box model.
+With box-sizing: border-box;, we can change the box model, where an element's specified width and height 
+aren't affected by padding or borders.
+
+With a border-box it is easy to use relative width values, such as width: 100%.
+
+Uiversal box-sizing with inheritance (css code):
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+5. Image size
+When using css property - width: 100%, the element will scale down, but it will also scale up to be larger than it's orginal size.
+To avoid scaling up, use the css property - max-width: 100%. It will scale down, but not above it's originale size.
+
+II. INCLUDE BOOTSTRAP TO ANGULAR PROJECT
+
+source: https://medium.com/@oyewusioyekunle/how-to-add-bootstrap-to-your-angular-project-angular-8-6379fd6a0f46
+
+Bootstrap is the world’s most popular framework for building responsive, and mobile-first sites.
+
+1. Adding Bootstrap to the Angular project.
+There are three ways of adding Bootstrap to Angular project:
+Method 1: Using Angular CLI (npm install).
+Method 2: Using CDN (Copy and Paste method).
+Method 3: Adding bootstrap CSS files to your project (Using CSS import).
+
+Method 1: Using Angular CLI (npm install).
+From the command line interface install bootstrap and references it in angular.json
+
+npm install bootstrap --save
+
+If you want to use bootstrap Javascript function, you need to install JQuery and popperjs with it. BootstrapJS depends on JQuery
+
+npm install jquery --save
+
+Add popper.js to use it's functionality
+
+npm install popper.js --save
+
+Reference the path in angular.json file. Make sure you reference it under build node.
+
+"build": {
+            ...,
+            "styles": [
+
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.scss"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
+          },
+
+You can also import bootstrap css into main css file in src folder. in that way it is possible to use scss variables.
+@import "styles-variables"; (Create file styles-variables.scss in the src folder.)
+@import '~bootstrap/scss/bootstrap-reboot';
+@import '~bootstrap/scss/bootstrap-grid';
+
+
+Method 2: Using CDN (CDN Referenced method).
+This is an old way of referencing bootstrap in our project.
+
+<link rel="stylesheet" href="https://.../bootstrap.min.css" integrity="..." crossorigin="anonymous">
+
+Method 3: Adding bootstrap CSS files to your project.
+You can direct add bootstrap folders to your asset directory in your angular project and reference the folder directly into your style.css or style.scss using
+
+@import url("bootstrap.min.css");
+
+III. BOOTSTRAP VS NG-BOOTSTRAP/ANGULAR MATERIAL STYLES
+
+BOOTSTRAP
+To use bootstrap styles both jQuery and popper should be installed, as Bootstrap styles uses both libraries.
+Angular manipulates DOM. jQuery does it too.
+Bootstrap uses jQuery for a lot of its functionality and animations, but we can't say for sure that it would cause problems.
+However, there are Angular's libraries that may be used instead of the Bootstrap: Angular Material. The other option is to use ng-bootstrap. 
+
+ANGULAR MATERIAL
+source:
+https://material.angular.io/
+
+https://medium.com/letsboot/quick-start-with-angular-material-and-flex-layout-1b065aa1476c
+instalation, photo gallery: https://www.youtube.com/watch?v=d6gJLs3ZZII
+Angular project with Bootstrap (for grid) and Angular Material: https://medium.com/@tomastrajan/how-to-build-responsive-layouts-with-bootstrap-4-and-angular-6-cfbb108d797b
+https://medium.com/better-programming/angular-8-series-part-4-add-angular-material-6501e91041d8
+https://www.youtube.com/watch?v=u679SQsfRVM
+
+Angular Material is specially designed for Angular projects and easy to implement.
+With mat elements, you can make a nice interface in a very short amount of time.
+Flex-layout is a package made for Angular to use CSS flex-box features, you just add directives in html tags to render it flexible and responsive.
+
+
+a). Install Angular Material
+npm i -S @angular/material @angular/cdk @angular/animations
+
+or Angular CLI command
+ng add @angular/material
+b) import some of the available modules in app.module.ts file, ie:
+import { MatCardModule } from '@angular/material/card';
+
+and add to imports array:
+imports: [MatCardModule]
+c) use the directive in html template
+<mat-card class="col-md-6">1</mat-card>
+d) import one of the pre-build Angular Material themes into style.scss file
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+e) It is good to reset Bootstrap's reboot.scss styling if there are used with Angular Material.
+Remove Bootstrap outlines that don’t play nicely with Angular Material links and buttons.
+
+inport styles-reset.scss into styles.scss.
+styles-reset.scss file contains:
+
+* {
+    &:active,
+    :focus {
+      outline: none !important;
+    }
+  }
+  
+  label {
+    margin-bottom: 0;
+  }
+
+f) Bootstrap sets link color and uses underline text-decoration on the hovered links. To change it add the following code to the styles-variables.scss:
+
+$link-hover-decoration: none;    // remove underline from button links
+
+$link-color: #3f51b5;            // set link color based on the used material theme
+$link-hover-color: currentColor;
+
+g) Create own custom Angular Material theme
+source: 
+
+NG-BOOTSTRAP
+
+
+IV. BOOTSTRAP LAYOUT VS GRID LAYOUT / FLEX LAYOUT
+
+source:
+https://medium.com/@tomastrajan/how-to-build-responsive-layouts-with-bootstrap-4-and-angular-6-cfbb108d797b
+https://mdbootstrap.com/docs/angular/layout/grid-usage/
+
+
+BOOTSTRAP LAYOUT
+Bootstrap’s grid system uses a series of containers, rows, and columns to layout and align content.
+It’s built with flexbox and is fully responsive.
+
+Using Bootstrap grid to create responsive layouts in Angular applications.
+Only bootstrap-reboot and Bootstrap-grid modules are used.
+a) Create Angular project with support for SCSS
+ng new angular-bootstrap-example --style scss --prefix abe
+
+We set the prefix for our components as a initial letter of the project, hence abe
+
+b) Install Bootstrap using 
+npm i -S bootstrap
+or
+npm install bootstrap --save
+c) Add imports
+There are two ways of adding imports, but the first way is better as it enables to override any Sass variable used by the Bootstrap styles definitions.
+The Sass variables may be used in other css files.
+
+c 1) You can add import to the main scss file located in src folder
+
+@import "styles-variables"; (Import variable as the first import. Create file styles-variables.scss in the src folder.)
+@import '~bootstrap/scss/bootstrap-reboot';
+@import '~bootstrap/scss/bootstrap-grid';
+
+c 2) You can add imports to the angular.json file
+
+"build": {
+          "options": {
+            "...": "...",
+            "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap-reboot.css",
+              "node_modules/bootstrap/dist/css/bootstrap-grid.css",
+              "src/styles.scss"
+            ]
+          }
+
+
+GRID LAYOUT - it is a CSS display: grid. It is supported now by all modern browsers.
+Developers do not need to use Bootstrap 4 to support grid layout. They can use the CSS display: grid to achive the same.
+
+https://www.w3schools.com/css/css_grid.asp
+https://www.youtube.com/watch?v=bam83Xv4VMA
+https://www.techiediaries.com/css-grid-layout-tutorial/
+
+FLEX LAYOUT - semi-official Angular libraries: https://github.com/angular/flex-layout
+
+V. BOOTSTRAP REBOOT.CSS
+
+source: https://scotch.io/tutorials/a-look-at-bootstrap-4s-new-reset-rebootcss
+
+The most popular 'reset' stylesheet for reseting browser syles was normalize.css.
+Normalize.css reset your browser styles and gave you some dead-simple, super pretty base styles.
+Normlalize.css doesn't use border-box by default though, requiring that you add it somehow.
+
+Bootstrap uses reboot.css stylesheet for reseting browser styles. It does the following:
+- uses box-size: border-box; by default on all elements.
+- uses "rems" for Sizing and Spacing
+- uses native font family - Uses the font the user wants / looks best for them
+- most elements do not have margin top (h1, ... h6, p, ul, ol, dl, pre)
+- mobile fast click - By default Reboot.css uses touch-action: manipulation to speed up any delay that might exist for touch users
+- 
+
+
+Here is sumarization of different units of measurement:
+px: Good for consistency, bad for accessibility
+em: Good for accessibility, just okay for maintainability / consistency
+rem: Good for accessibility, really good for maintainability / consistency
+
+px - 100 pixels is always going to be 100 pixels long regardless if it is shown on a 4k monitor or in a 1000 or 5000 pixel sized container.
+This is good for consistency but bad for usability since it doesn't scale well to user-specifc preferences.
+em - is relative to the parent element. It is cool, but it gets complicated if one element is relativ to other which is relativ to another.
+rem - everything is always relative to the root (aka, the body tag or html tag)
+
+VI. BOOTSTRAP OTHER 
+
+navbar component: https://medium.com/@tiboprea/build-a-responsive-bootstrap-4-navbar-in-angular-5-without-jquery-c59ad35b007
+install bootstrap with SCSS: https://medium.com/@tiboprea/add-bootstrap-4-with-its-sass-files-in-an-angular-5-project-3c8f7fcc0ac0
+simple app with Angular and Bootstrap: https://www.c-sharpcorner.com/article/a-look-into-angular-7-navbar-application-using-bootstrap-4/
+install Bootstrap: https://medium.com/wdstack/angular-7-bootstrap-4-starter-25573dff23f6
+
+VII. NAVIGATION 
+source:
+https://www.youtube.com/watch?v=Q6qhzG7mObU
+https://medium.com/@ahmedaabouzied/angular-material-responsive-navigation-53b573305d3d
+https://material.angular.io/components/sidenav/overview
+https://code-maze.com/angular-material-navigation/
+navigation with lazy loading: https://angular.io/guide/router#lazy-loading-route-configuration
+
+
+VII. FONT-AWESOME
+
+Font-awesome is the one of the most popular place to get icon to use for web design.
+You can add font-awesome icon to your angular project using npm, and reference the css in your angular.json file.
+
+npm install font-awesome
+
+
+VIII. LAZY LOADING
+
+source:
+https://medium.com/@tomastrajan/the-best-way-to-lazy-load-angular-elements-97a51a5c2007
+navigation with lazy loading: https://angular.io/guide/router#lazy-loading-route-configuration
+navigation plus routing: https://code-maze.com/net-core-web-development-part8/
+
+
+
+IX MIGRATING FROM CSS TO SCSS
+
+source: https://medium.com/@ngubanethabo.ambrose/migrate-from-css-to-scss-stylesheets-for-existing-angular-application-d61f8061f5b7
+a) 
+Run: 
+ng config defaults.styleExt=scss
+
+or
+ng config schematics.@schematics/angular:component.styleext scss
+
+or change it manually in angular.js file
+"schematics": {
+      "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+}
+
+b) Change the file extension in all name_style.css files to name_style.scss
+c) Change the paths whenever the path was used to the correct one
+
+

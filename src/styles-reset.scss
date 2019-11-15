@@ -1,0 +1,12 @@
+// Remove Bootstrap outlines that don’t play nicely with Angular Material links and buttons
+
+* {
+    &:active,
+    :focus {
+      outline: none !important;
+    }
+  }
+  
+  label {
+    margin-bottom: 0;
+  }

@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+
+// Bootstrap
+@import "styles-variables";
+@import "~bootstrap/scss/bootstrap-reboot";
+@import "~bootstrap/scss/bootstrap-grid";
+// Reset Boostrap's reboot to fit Angular Material
+@import "styles-reset";
+
+// Angular Material
+// import Angular Material prebuilt theme
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
