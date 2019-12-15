@@ -1,0 +1,47 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" role="navigation" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false"
+      [ngClass]="{'hidden': !(isHandset$ | async)}"> <!-- Hide a Sidenav on a big screens-->
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="#">U Goni</a>
+      <a mat-list-item href="#">imprezy</a>
+      <a mat-list-item href="#">przyjęcia</a>
+      <a mat-list-item href="#">menu</a>
+      <a mat-list-item href="#">galeria</a>
+      <a mat-list-item href="#">kontakt</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <!-- Display only if not handset-->
+      <div *ngIf="!(isHandset$ | async)" style="width: 100%; display: inline-flex; justify-content: space-evenly">
+        <div>
+          <a mat-button color="accent">U Goni</a>
+          <a mat-button>imprezy</a>
+          <a mat-button>przyjęcia</a>
+        </div>
+        <div>
+          <a mat-button><span>U Goni </span><div mat-card-avatar class="logo" style="display: inline-block"></div><span> nocna imprezka</span></a>
+        </div>
+        <div>
+          <a mat-button>menu</a>
+          <a mat-button>galeria</a>
+          <a mat-button>kontakt</a>
+        </div>
+      </div>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <ng-content></ng-content> <!-- Content goes here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>
