@@ -34,7 +34,17 @@ mat-toolbar a:hover {
   color: black;
 }
 
-.logo {
+.app-logo {
   background-image: url('~/assets/img/main/logo.jpg');
   background-size: cover;
+}
+
+.app-inline-block {
+  display: inline-block;
+}
+
+.app-inline-flex-center {
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
 }

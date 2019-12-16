@@ -25,16 +25,16 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <!-- Display only if not handset-->
-      <div *ngIf="!(isHandset$ | async)" style="width: 100%; display: inline-flex; justify-content: space-evenly">
-        <div>
+      <div class="app-inline-flex-center">
+        <div *ngIf="!(isHandset$ | async)">
           <a mat-button color="accent">U Goni</a>
           <a mat-button>imprezy</a>
           <a mat-button>przyjęcia</a>
         </div>
         <div>
-          <a mat-button><span>U Goni </span><div mat-card-avatar class="logo" style="display: inline-block"></div><span> nocna imprezka</span></a>
+          <a mat-button><span>U Goni </span><div mat-card-avatar class="app-logo app-inline-block"></div><span> nocna imprezka</span></a>
         </div>
-        <div>
+        <div *ngIf="!(isHandset$ | async)">
           <a mat-button>menu</a>
           <a mat-button>galeria</a>
           <a mat-button>kontakt</a>
