@@ -1,0 +1,22 @@
+{
+  "imgData": [
+    {
+      "imgUrl": "assets/img/carousel/slider_1.jpg",
+      "alt": "slider - about event",
+      "header": "nocna imprezka",
+      "text": "Start 21.00 Tańce Do Rana!"
+    },
+    {
+      "imgUrl": "assets/img/carousel/slider_2.jpg",
+      "alt": "slider - about event",
+      "header": "Klimatyczne Karaoke ",
+      "text": "Pomieszczenie Klimatyzowane Na Poddaszu"
+    },
+    {
+      "imgUrl": "assets/img/carousel/slider_3.jpg",
+      "alt": "slider - about event",
+      "header": "DJ",
+      "text": "Fajniutko Klimatycznie Imprezowo!!!"
+    }
+  ]
+}

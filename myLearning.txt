@@ -450,3 +450,42 @@ https://codelabs.developers.google.com/codelabs/angular-slider-element/index.htm
 https://medium.com/allenhwkim/building-a-carousel-in-angular-way-84d2c45baf02
 https://www.impactbnd.com/blog/why-homepage-carousels-are-bad
 
+XIV. Element vs HTMLElement
+HTMLElement refers explicitly to an HTML element whereas Element may refer to an XML element.
+HTMLElements inherit from Element which inherit from Node.
+https://www.w3.org/TR/2003/REC-DOM-Level-2-HTML-20030109/html.html#ID-58190037
+
+Type assertions is like a type cast in other languages. It is recommended to use as for type assertion.
+Type assertion using <type> is forbidden.
+Type assertion using 'as' is prefered.
+
+XV. THE FULL LIST OF TYPESCRIPT TYPES
+https://www.saltycrane.com/cheat-sheets/typescript/latest/
+https://github.com/microsoft/TypeScript/blob/v3.7.2/lib/lib.dom.d.ts#L6565
+
+HTMLCollectionOf<T extends Element> is an interface of TypeScript.
+It is a generic form of HTMLCollection. HTMLCollection is return by i.e. getElementsByClassName()
+
+XVI. LINTER
+lint, or a linter, is a tool that analyzes source code to flag programming errors, bugs, stylistic errors, and suspicious constructs.
+The term originates from a Unix utility that examined C language source code.
+
+ESLint vs TSLint: https://medium.com/palantir/tslint-in-2019-1a144c2317a9
+
+XVII. THIS SETTIMEOUT()
+https://www.toptal.com/javascript/10-most-common-javascript-mistakes
+
+The keyword 'this' depends on the context.
+
+When you invoke setTimeout(), you are actually invoking window.setTimeout().
+As a result, the anonymous function (if used) being passed to setTimeout() is being defined in the context of the window object, which has no myMethod() method.
+A traditional, old-browser-compliant solution is to simply save your reference to this in a variable that can then be inherited by the closure;
+
+var self = this;   // save reference to 'this', while it's still this!
+
+You can also use arrow function that keeps the context: () => { this.myFunction(); } 
+instead of anonymous function: var self = this; function () { self.myFunction(); }
+
+XVIII. ANIMATION DISPLAY 
+source:
+animation display none to block: https://codepen.io/Markao17/pen/BLKzap

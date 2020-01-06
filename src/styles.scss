@@ -16,3 +16,16 @@ html, body { height: 100%; }
 body { margin: 0; 
     //font-family: Roboto, "Helvetica Neue", sans-serif; // Remove it to keep Bootsrtap settings of fonts
 }
+
+// General custom styles
+.app-display-none {
+    display: none;
+}
+
+.app-relative {
+    position: relative;
+}
+
+.app-upper-case {
+    text-transform: uppercase;
+}

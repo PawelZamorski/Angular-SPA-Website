@@ -1,0 +1,66 @@
+@import "../../styles-variables.scss"; // import to use Bootstrap's grid-breakpoints and custom mixin
+
+.app-carousel-img {
+    width: 100%;
+}
+
+// Mobile first
+.app-carousel-caption {
+    position: absolute;
+    bottom: 15%;
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 70%;
+    background-color: rgba(194, 24, 91, 0.4);
+    border-left: solid 2px rgb(194, 24, 91);
+    border-right: solid 2px rgb(194, 24, 91);
+}
+
+// On screens that are $md wide or more, make the width 50% and font-size 100%
+// use mixin
+@include respond-above(md) {
+    .app-carousel-caption {
+        width: 50%;
+        font-size: 100%;
+    }
+}
+
+
+.app-carousel-showElement {
+    display: block;
+    animation: app-fadeUp 3s;
+}
+
+@keyframes app-fadeUp {
+    from {opacity: 0.2}
+    to {opacity: 1}
+}
+
+.app-carousel-dots {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    text-align: center;
+}
+
+.app-dot {
+    cursor: pointer;
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    transition: background-color 0.6s ease;
+}
+
+.app-dot-disactive {
+    background-color: #bbb;
+}
+
+.app-dot:hover, .app-dot-active {
+    background-color: #717171;
+}
