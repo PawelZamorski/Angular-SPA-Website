@@ -18,14 +18,28 @@ body { margin: 0;
 }
 
 // General custom styles
-.app-display-none {
+// Prefix: 'app-g' as application general styles
+.app-g-display-none {
     display: none;
 }
+  
+.app-g-display-inline-block {
+    display: inline-block;
+}
 
-.app-relative {
+.app-g-relative {
     position: relative;
 }
 
-.app-upper-case {
+.app-g-upper-case {
     text-transform: uppercase;
+}
+
+.app-g-text-center {
+    text-align: center;
+}
+
+.app-g-logo {
+    background-image: url('~/assets/img/main/logo.jpg');
+    background-size: cover;
 }

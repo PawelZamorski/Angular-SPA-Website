@@ -5,6 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
+// Other Modules (installed via npm)
+// Font Awesome
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 // Angular Material
 import { MatCardModule } from '@angular/material/card';
 // Navigation Component
@@ -17,18 +21,26 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// Customs components
 import { CarouselComponent } from './carousel/carousel.component';
+import { FooterComponent } from './footer/footer.component';
+import { SocialComponent } from './social/social.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    CarouselComponent
+    CarouselComponent,
+    FooterComponent,
+    SocialComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    // Font Awesome
+    FontAwesomeModule,
     // Angular Material
     MatCardModule,
     LayoutModule,

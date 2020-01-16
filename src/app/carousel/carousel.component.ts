@@ -77,14 +77,14 @@ constructor(private imgDS: ImgDataService) { }
     setInterval(() => {
       if(this.displayItemIndex >= this.collection.length) this.displayItemIndex = 0;
       // hide element
-      this.changeClassList(this.collection, this.hideItemIndex, 'app-carousel-showElement', 'app-display-none');
+      this.changeClassList(this.collection, this.hideItemIndex, 'app-carousel-showElement', 'app-g-display-none');
       // disactivate dot
       this.changeClassList(this.dotCollection, this.hideItemIndex, 'app-dot-active', 'app-dot-disactive');
       // track the index of element to manipulate in the next loop
       this.hideItemIndex = this.displayItemIndex;
 
       // show element
-      this.changeClassList(this.collection, this.displayItemIndex, 'app-display-none', 'app-carousel-showElement');
+      this.changeClassList(this.collection, this.displayItemIndex, 'app-g-display-none', 'app-carousel-showElement');
       // activate dot
       this.changeClassList(this.dotCollection, this.displayItemIndex, 'app-dot-disactive', 'app-dot-active');
       this.displayItemIndex++;

@@ -1,0 +1,9 @@
+/* apply margin-left to all child except first one */
+#app-social-container a + a {
+    margin-left: 10px;
+}
+
+/* Enlarge icons */
+fa-icon {
+    font-size: 1.5rem;
+}
