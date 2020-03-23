@@ -26,14 +26,31 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselComponent } from './carousel/carousel.component';
 import { FooterComponent } from './footer/footer.component';
 import { SocialComponent } from './social/social.component';
+// Subpages
+import { WelcomeComponent } from './subpages/welcome/welcome.component';
+import { MenuComponent } from './subpages/menu/menu.component';
+import { GaleriaComponent } from './subpages/galeria/galeria.component';
+import { KontaktComponent } from './subpages/kontakt/kontakt.component';
+import { ImprezyComponent } from './subpages/imprezy/imprezy.component';
+import { PrzyjeciaComponent } from './subpages/przyjecia/przyjecia.component';
+import { PageNotFoundComponent } from './subpages/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
+    // Customs components
     CarouselComponent,
     FooterComponent,
-    SocialComponent
+    SocialComponent,
+    // Subpages
+    WelcomeComponent,
+    MenuComponent,
+    GaleriaComponent,
+    KontaktComponent,
+    ImprezyComponent,
+    PrzyjeciaComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

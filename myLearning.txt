@@ -489,3 +489,69 @@ instead of anonymous function: var self = this; function () { self.myFunction();
 XVIII. ANIMATION DISPLAY 
 source:
 animation display none to block: https://codepen.io/Markao17/pen/BLKzap
+
+XIX. ROUTING
+source: https://angular.io/guide/router
+https://dev.to/ajonpllc/angular-material-router-outlet-3292
+
+
+AppRoutingModule - The best practice is to load and configure the router in a separate, top-level module that is dedicated to routing and imported by the root AppModule.
+By convention, the module class name is AppRoutingModule and it belongs in the app-routing.module.ts in the src/app folder.
+
+Step 1) <base href="/">
+add <base href="/">  to the index.html as the first child in the <head> tag to tell the router how to compose navigation URLs.
+If the app folder is the application root, set the href value exactly as above.
+
+On a local development machine (development process) the base href is "/": localhost:4200/.
+However, on production server machine the href must be set up to the subfolder the website is in (root folder): href="/website/"
+So all the pages, images ect will be realtive to the root folder.
+
+CLI when building project:
+ng build -prod --base-href /website/
+
+Step 2) Router imports
+import { RouterModule, Routes } from '@angular/router';
+
+Step 3) Configuration
+A routed Angular application has one singleton instance of the Router service.
+When the browser's URL changes, that router looks for a corresponding Route from which it can determine the component to display.
+
+The appRoutes array of routes describes how to navigate. Pass it to the RouterModule.forRoot() method in the module imports to configure the router.
+
+Each Route maps a URL path to a component. There are no leading slashes in the path.
+The router parses and builds the final URL for you, allowing to use both relative and absolute paths when navigating between application views.
+
+const appRoutes: Routes = [
+  { path: 'crisis-center', component: CrisisListComponent },
+  { path: 'hero/:id', component: HeroDetailComponent },
+  { path: 'heroes', component: HeroListComponent, data: { title: 'Heroes List' } },
+  // Set up default route to a valid page (ptherwise localhost:4200 doesn't match any of the concrete configured routes)
+  { path: '', redirectTo: '/heroes', pathMatch: 'full' },
+  // Set up wildcard route. Put it at the end, as the router selects the route with 'a first match wins' strategy.
+  { path: '**', component: PageNotFoundComponent }
+];
+
+@NgModule({
+  imports: [
+    RouterModule.forRoot(appRoutes)
+  ],
+
+Step 4) Router outlet
+
+<router-outlet></router-outlet>
+<!-- Routed components go here -->
+
+The RouterOutlet is a directive from the router library that is used like a component.
+It acts as a placeholder that marks the spot in the template where the router should display the components for that outlet.
+
+Angular Material Navigation: If using Angular Material add <router-outlet> between <mat-sidenav-content> directive.
+
+Step 5) Router links
+
+<a routerLink="/path" routerLinkActive="active">my page</a>
+
+The RouterLinkActive directive toggles css classes for active RouterLink bindings based on the current RouterState.
+
+Add more classes to the RouterLinkActive directive as a string of classes such as [routerLinkActive]="'active fluffy'" or bind it to a component property that returns such a string.
+The Router will add those classes when this link is active (and remove when the link is inactive).
+

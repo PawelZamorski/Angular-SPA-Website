@@ -18,7 +18,7 @@ body { margin: 0;
 }
 
 // General custom styles
-// Prefix: 'app-g' as application general styles
+// Prefix: 'app-g' as application-general styles
 .app-g-display-none {
     display: none;
 }
@@ -37,6 +37,14 @@ body { margin: 0;
 
 .app-g-text-center {
     text-align: center;
+}
+
+.app-g-bold {
+    font-weight: bold;
+}
+
+.app-g-font-small {
+    font-size: .8rem;
 }
 
 .app-g-logo {

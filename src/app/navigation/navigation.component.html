@@ -27,21 +27,22 @@
       <!-- Display only if not handset-->
       <div class="app-inline-flex-center">
         <div *ngIf="!(isHandset$ | async)">
-          <a mat-button color="accent">U Goni</a>
-          <a mat-button>imprezy</a>
-          <a mat-button>przyjęcia</a>
+          <a mat-button color="accent" routerLink="/ugoni" routerLinkActive="active">U Goni</a>
+          <a mat-button routerLink="/imprezy" routerLinkActive="active">imprezy</a>
+          <a mat-button routerLink="/przyjecia" routerLinkActive="active">przyjęcia</a>
         </div>
         <div>
-          <a mat-button><span>U Goni </span><div mat-card-avatar class="app-g-logo app-g-display-inline-block"></div><span> nocna imprezka</span></a>
+          <a mat-button routerLink="/ugoni" routerLinkActive="active"><span>U Goni </span><div mat-card-avatar class="app-g-logo app-g-display-inline-block"></div><span> nocna imprezka</span></a>
         </div>
         <div *ngIf="!(isHandset$ | async)">
-          <a mat-button>menu</a>
-          <a mat-button>galeria</a>
-          <a mat-button>kontakt</a>
+          <a mat-button routerLink="/menu" routerLinkActive="active">menu</a>
+          <a mat-button routerLink="/galeria" routerLinkActive="active">galeria</a>
+          <a mat-button routerLink="/kontakt" routerLinkActive="active">kontakt</a>
         </div>
       </div>
     </mat-toolbar>
     <!-- Add Content Here -->
-    <ng-content></ng-content> <!-- Content goes here -->
+    <!-- ng-content tag - content goes here. It acts as a placeholder. It takes the content from the parent component -->    
+    <ng-content></ng-content><!-- The content goes from app.component.html <app-navigation> content </app-navigation>-->
   </mat-sidenav-content>
 </mat-sidenav-container>
