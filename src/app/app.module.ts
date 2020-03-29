@@ -11,6 +11,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 // Angular Material
 import { MatCardModule } from '@angular/material/card';
+// Angular Material Form
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 // Navigation Component
 import { NavigationComponent } from './navigation/navigation.component';
 // Angular Material components required by Navigation Component
@@ -21,7 +25,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 // Customs components
 import { CarouselComponent } from './carousel/carousel.component';
 import { FooterComponent } from './footer/footer.component';
@@ -66,7 +69,10 @@ import { PageNotFoundComponent } from './subpages/page-not-found/page-not-found.
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

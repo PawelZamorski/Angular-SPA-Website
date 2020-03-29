@@ -6,12 +6,12 @@
       [ngClass]="{'hidden': !(isHandset$ | async)}"> <!-- Hide a Sidenav on a big screens-->
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">U Goni</a>
-      <a mat-list-item href="#">imprezy</a>
-      <a mat-list-item href="#">przyjęcia</a>
-      <a mat-list-item href="#">menu</a>
-      <a mat-list-item href="#">galeria</a>
-      <a mat-list-item href="#">kontakt</a>
+      <a mat-list-item routerLink="/ugoni" routerLinkActive="active">U Goni</a>
+      <a mat-list-item routerLink="/imprezy" routerLinkActive="active">imprezy</a>
+      <a mat-list-item routerLink="/przyjecia" routerLinkActive="active">przyjęcia</a>
+      <a mat-list-item routerLink="/menu" routerLinkActive="active">menu</a>
+      <a mat-list-item routerLink="/galeria" routerLinkActive="active">galeria</a>
+      <a mat-list-item routerLink="/kontakt" routerLinkActive="active">kontakt</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -29,7 +29,7 @@
         <div *ngIf="!(isHandset$ | async)">
           <a mat-button color="accent" routerLink="/ugoni" routerLinkActive="active">U Goni</a>
           <a mat-button routerLink="/imprezy" routerLinkActive="active">imprezy</a>
-          <a mat-button routerLink="/przyjecia" routerLinkActive="active">przyjęcia</a>
+          <a mat-button routerLink="/przyjecia" routerLinkActive="active">organizacja przyjęć</a>
         </div>
         <div>
           <a mat-button routerLink="/ugoni" routerLinkActive="active"><span>U Goni </span><div mat-card-avatar class="app-g-logo app-g-display-inline-block"></div><span> nocna imprezka</span></a>
@@ -37,7 +37,7 @@
         <div *ngIf="!(isHandset$ | async)">
           <a mat-button routerLink="/menu" routerLinkActive="active">menu</a>
           <a mat-button routerLink="/galeria" routerLinkActive="active">galeria</a>
-          <a mat-button routerLink="/kontakt" routerLinkActive="active">kontakt</a>
+          <a mat-button routerLink="/kontakt" routerLinkActive="active">kontakt i rezerwacje</a>
         </div>
       </div>
     </mat-toolbar>

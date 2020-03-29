@@ -1,33 +1,3 @@
-@import "../../styles-variables.scss"; // import to use Bootstrap's grid-breakpoints and custom mixin
-
-.app-carousel-img {
-    width: 100%;
-}
-
-// Mobile first
-.app-carousel-caption {
-    position: absolute;
-    bottom: 15%;
-    width: 80%;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    font-size: 70%;
-    background-color: rgba(194, 24, 91, 0.4);
-    border-left: solid 2px rgb(194, 24, 91);
-    border-right: solid 2px rgb(194, 24, 91);
-}
-
-// On screens that are $md wide or more, make the width 50% and font-size 100%
-// use mixin
-@include respond-above(md) {
-    .app-carousel-caption {
-        width: 50%;
-        font-size: 100%;
-    }
-}
-
-
 .app-carousel-showElement {
     display: block;
     animation: app-fadeUp 3s;

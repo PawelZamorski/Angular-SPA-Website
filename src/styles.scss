@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-// Bootstrap
+// Bootstrap - v4.3.1
 @import "styles-variables";
 @import "~bootstrap/scss/bootstrap-reboot";
 @import "~bootstrap/scss/bootstrap-grid";
@@ -19,6 +19,13 @@ body { margin: 0;
 
 // General custom styles
 // Prefix: 'app-g' as application-general styles
+
+.app-g-logo {
+    background-image: url('~/assets/img/main/logo.jpg');
+    background-size: cover;
+}
+
+// Display styles
 .app-g-display-none {
     display: none;
 }
@@ -31,12 +38,17 @@ body { margin: 0;
     position: relative;
 }
 
+// Text and fonts styles
 .app-g-upper-case {
     text-transform: uppercase;
 }
 
 .app-g-text-center {
     text-align: center;
+}
+
+.app-g-text-justify {
+    text-align: justify;
 }
 
 .app-g-bold {
@@ -47,7 +59,43 @@ body { margin: 0;
     font-size: .8rem;
 }
 
-.app-g-logo {
-    background-image: url('~/assets/img/main/logo.jpg');
-    background-size: cover;
+.app-g-font-xsmall {
+    font-size: .6rem;
+}
+
+/* Image styles */
+.app-g-img-100 {
+    width: 100%;
+}
+
+// Image caption - Mobile first
+.app-g-caption {
+    position: absolute;
+    bottom: 15%;
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 70%;
+    background-color: rgba(194, 24, 91, 0.4);
+    border-left: solid 2px rgb(194, 24, 91);
+    border-right: solid 2px rgb(194, 24, 91);
+}
+
+// On screens that are $md wide or more, make the width 50% and font-size 100%
+// use mixin
+@include respond-above(md) {
+    .app-g-caption {
+        width: 50%;
+        font-size: 100%;
+    }
+}
+
+// Background Decoration
+.app-g-decorator {
+    background: url(/assets/img/main/logo-break.png);
+    background-size: 82px 60px;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    padding-bottom: 70px;
 }

@@ -555,3 +555,14 @@ The RouterLinkActive directive toggles css classes for active RouterLink binding
 Add more classes to the RouterLinkActive directive as a string of classes such as [routerLinkActive]="'active fluffy'" or bind it to a component property that returns such a string.
 The Router will add those classes when this link is active (and remove when the link is inactive).
 
+XX. GOOGLE MAPS 
+step 1) Sign in to Google Acount -> Google Cloud Platform -> menu button -> APIs & Services > Credentials
+
+step 2) Create credentials > API key
+
+step 3) Open API Key (in Credentialns) and set up credentials:
+- API restrictions -> enable Maps Embed API which is free 
+- Remember to restrict the API key to the IP address before using it in production
+
+step 4) Enable APIs and Services: go to Dashboard -> Enable APIs and Services
+Maps Embed API is free 
