@@ -566,3 +566,141 @@ step 3) Open API Key (in Credentialns) and set up credentials:
 
 step 4) Enable APIs and Services: go to Dashboard -> Enable APIs and Services
 Maps Embed API is free 
+
+XXI. ANGULAR - FORMS 
+https://angular.io/guide/forms-overview
+
+There are two ways to create forms in Angular:
+1) Template Driven forms
+2) Reactive forms
+
+Both capture user input events from the view, validate the user input, create a form model and data model to update, and provide a way to track changes.
+
+1) Template Driven forms
+Template Driven forms are heavy on the form template meaning we create the form in HTML.
+Template Driven forms are easy to understand and build. they’re great for creating Simple form.
+Building complex forms using a Template Driven approach is not suitable, as the HTML can get very complicated.
+
+Form Control drives through angular “ngModel” directive.
+It is responsible for creating and managing form instance.
+To add validation, we use the same html validation attributes like ‘required’, ‘minLength’ etc.
+Every time the value changes, Angular runs validation and generates either a list of errors(define control invalid status) or null(define control valid status).
+
+Template: <input type="text" [(ngModel)]="favoriteColor">
+component.ts: favoriteColor = '';
+
+Create Form:
+step 1). Update ngModule.
+Template Driven Form drives through ‘ngModel’.
+Include FormsModule in application module.
+This gives the application access to all of the template-driven forms features, including ngModel.
+
+import { FormsModule } from '@angular/forms';
+
+step 2). Create template
+In template driven forms, there is no need to do anything to the <form> tag in order to make use of FormsModule.
+
+<div>
+  <form>
+    <div>
+      <label for="myName">Name</label>
+      <input type="text" class="form-control" id="myName" required name="myName">
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+step 3) Add ngModel and name property to the input element
+<input type="text" class="form-control" id="someName" required name="inputName" [(ngModel)]="variableName">
+
+ngModel controls the changes in the input element.
+The name propertie must be set up, as Angular ngModel refers tho the input element via name variable.
+
+step 4) (optional but usefull) Declare a template variable for the form. Update the <form> tag with #myForm="ngForm" as follows:
+<form #myForm="ngForm">
+
+ngForm is a Directive. Angular automatically creates and attaches an NgForm directive to the <form> tag.
+Creates a top-level FormGroup instance and binds it to a form to track aggregate form value and validation status.
+The variable myForm is now a reference to the NgForm directive that governs the form as a whole.
+
+The NgForm directive supplements the form element with additional features.
+It holds the controls you created for the elements with an ngModel directive and name attribute, and monitors their properties, including their validity.
+It also has its own valid property which is true only if every contained control is valid.
+
+FormControl - Internally, Angular creates FormControl instances and registers them with an NgForm directive that Angular attached to the <form> tag.
+Each FormControl is registered under the name you assigned to the name attribute.
+Each input element has a name property <input name="myName"> that is required by Angular forms to register the control with the form.
+
+#myForm is a Template Reference Variables. A template reference variable is often a reference to a DOM element within a template. It can also refer to a directive (which contains a component), an element, TemplateRef, or a web component.
+more: https://angular.io/guide/template-syntax#ref-vars
+
+step 5) Track control state and validity
+
+step 6) error message
+Add a template reference variable to access the input box's Angular control from within the template.
+
+#myName = 'ngModel'
+Why "ngModel"? A directive's exportAs property tells Angular how to link the reference variable to the directive. You set name to ngModel because the ngModel directive's exportAs property happens to be "ngModel".
+
+step 7) Add click event to the button
+Button should be type="submit"
+Add click event to the form button, Add also #myForm.reset() function to clear all inputs and reset all states (also i.e. pristine class): (click)="sengMessage(); myForm.reset()"
+
+step 8) Submit the form with ngSubmit
+Bind the form's ngSubmit event property to the form component's onSubmit() method
+
+<form #myForm="ngForm" (ngSubmit)="onSubmit()">
+
+Pass whole ngForm to the onSubmit method:
+<form  #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+
+
+step 9) disable button
+[disabled]="!myForm.form.valid"
+
+step 10) add validation
+Add the same validation attributes as you would with native HTML form validation. Angular uses directives to match these attributes with validator functions in the framework.
+Every time the value of a form control changes, Angular runs validation and generates either a list of validation errors, which results in an INVALID status, or null, which results in a VALID status.
+Inspect the control's state by exporting ngModel to a local template variable.
+
+<div *ngIf="name.invalid && (name.dirty || name.touched)">
+  <div *ngIf="name.errors.required">
+    Name is required.
+  </div>
+</div>
+
+
+2) Reactive forms
+The reactive forms/Model Driven forms, allow us to build the form completely in code.
+This is more flexible and has many benefits over template forms.
+For example, it’s easy to add form input elements and add validation at runtime based on the decisions made in code and validation is in a component class.
+
+Reactive Forms pros:
+- Provides a one-way data flow making the code less prone to errors & easier to reason about it.
+- Reactive forms are purely in JS, hence giving you the full power of JS to your forms.
+- Testing them is much easier since we don’t have to first create a component to test them as it is for the template-driven forms
+
+
+XXII. SEND EMAIL
+Ways of sending emails:
+1) mailto link
+<a href="mailto:contact@yourdomain.com”>Send email</a>
+
+It opens a user email client filled with the email address to be send to.
+
+mailto is a Uniform Resource Identifier (URI) scheme for email addresses.
+It is used to produce hyperlinks on websites that allow users to send an email to a specific address directly from an HTML document, without having to copy it and entering it into an email client.
+A number of security issues are mentioned in RFC2368, however the greatest concern is robotic address harvesting.
+While methods exist to "harden" mailto links against harvesting—address munging and JavaScript-based address obfuscation among them—these protections can be circumvented by sufficiently sophisticated harvesting robots.
+Other techniques, like walling the address behind a CAPTCHA or similar "humanity check", provide security on par with that available for other contact methods, most notably web forms, which experience similar challenges with preventing spam.
+
+2) mailto form
+<form action=”mailto:contact@yourdomain.com” method=”POST” enctype=”multipart/form-data” name=”EmailForm”>
+
+It opens a user email client filled with the email address to be send to and a message formed by collecting values from input tags.
+
+3) use action="page.php"
+<form action=”filename.php” method=”POST” enctype=”multipart/form-data” name=”EmailForm”>
+
+Send data to the server and process the data, i.e. send it ot the email
+

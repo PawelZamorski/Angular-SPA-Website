@@ -1,0 +1,72 @@
+<!-- Angular Material Form -->
+<div id="Kontakt-form-container" class="row">
+  <div class="col">
+    <form #messageForm="ngForm" (ngSubmit)="sendMessage(messageForm)">
+      <div class="row">
+        <mat-form-field class="col-6" appearance="standard">
+          <mat-label for="name">Imię</mat-label>
+          <input matInput type="text" id="name" name="name" [(ngModel)]="name">
+        </mat-form-field>
+        <mat-form-field class="col-6" appearance="standard">
+          <mat-label for="surname">Nazwisko</mat-label>
+          <input matInput type="text" id="surname" name="surname" [(ngModel)]="surname">
+        </mat-form-field>            
+      </div>
+      <div class="row">
+        <mat-form-field class="col-6" appearance="standard">
+          <mat-label for="email">Email</mat-label>
+          <input matInput type="email" id="email" name="email" [(ngModel)]="email" required email #emailRef="ngModel">
+          <mat-error *ngIf="emailRef.errors?.required">Email jest wymagany</mat-error>
+          <mat-error *ngIf="emailRef.errors?.email">Nieprawidłowy email</mat-error>
+        </mat-form-field>
+        <mat-form-field class="col-6" appearance="standard">
+          <mat-label for="phone">Telefon</mat-label>
+          <input matInput type="number" id="phone" name="phone" [(ngModel)]="phone" required #phoneRef="ngModel">
+          <mat-error *ngIf="phoneRef.errors?.required">Telefon jest wymagany</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="col" appearance="fill">
+          <mat-label for="message">Treść wiadomości</mat-label>
+          <textarea matInput id="message" name="message" [(ngModel)]="message" required #messageRef="ngModel"></textarea>
+          <mat-error *ngIf="messageRef.errors?.required">Wiadomość jest wymagana</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row app-g-text-left">
+        <div class="col app-g-font-xsmall">
+          <mat-error class="col app-g-font-xsmall" *ngIf="permissionRef.errors?.required">Zaznacz wymagane pole</mat-error>
+          <mat-checkbox name="permission" [(ngModel)]="permission" required #permissionRef="ngModel">
+            *Wyrażam zgodę
+          </mat-checkbox>
+          <p>na przetwarzanie udostępnionych w formularzu moich danych osobowych zgodnie z ustawą o ochronie danych osobowych w celu obsługi zapytania.</p>
+        </div>
+      </div>
+      <div class="row app-g-text-left">
+        <div class="col app-g-font-xsmall">
+          <mat-checkbox name="marketing" [(ngModel)]="marketing">
+            Wyrażam zgodę
+          </mat-checkbox>
+          <p>na przetwarzanie moich danych osobowych udostępnionych w formularzu w celu otrzymywania informacji marketingowych dotyczących oferty firmy SoftCream Sp. z o.o. oraz podmiotów powiązanych z firmą.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button class="app-g-upper-case" mat-flat-button color="primary" type="submit" [disabled]=!messageForm.form.valid>Wyślij wiadomości</button>
+        </div>
+      </div>
+      <div class="row app-g-text-left">
+        <div class="col app-g-font-xsmall">
+          <p>
+            Pola oznaczone * są wymagane.
+          </p>
+          <p class="app-g-text-justify">
+            Administratorem podanych danych osobowych jest UGoni z siedzibą w Rzeszowie, kod pocztowy -- - ---, przy ul. Rynek 10.
+            Dane będą przetwarzane w celu odpowiedzi na zapytanie i kontaktów marketingowych, o ile wyrażono na to zgodę.
+            Podanie danych jest dobrowolne, ale niezbędne do obsługi zapytania. Dane będą przetwarzane do momentu odwołania zgody na ich przetwarzanie.
+            Osobom, których dane dotyczą, przysługuje prawo dostępu do tych danych, ich sprostowania, usunięcia, ograniczenia przetwarzania, przenoszenia danych, wniesienia sprzeciwu wobec ich przetwarzania oraz prawo wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych.
+          </p>  
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

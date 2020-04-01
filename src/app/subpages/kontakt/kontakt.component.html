@@ -18,31 +18,40 @@
       <p class="app-g-text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
     </div>
   </div>
-  <!-- Address | opening hours -->
+  <!-- Wrapper for: Address - opening hours - Contact | Contact form-->
   <div class="row">
+    <!-- Address - opening hours - Contact -->
     <div class="col-md-6">
-      <h1 class="app-g-bold app-g-upper-case  app-g-decorator">Adres</h1>
-      <address class="app-g-font-small">Rynek Główny<br />Rzeszów<br />II piętro</address>
+      <!-- Address -->
+      <div class="row">
+        <div class="col">
+          <h1 class="app-g-bold app-g-upper-case  app-g-decorator">Adres</h1>
+          <address class="app-g-font-small">Rynek Główny<br />Rzeszów<br />II piętro</address>
+        </div>
+      </div>
+      <!-- Opening Hours -->
+      <div class="row">
+        <div class="col">
+          <h1 class="app-g-bold app-g-upper-case app-g-decorator">Godziny otwarcia</h1>
+          <p>Imprezka do rana!<br />Zapraszamy codziennie od 20.00 do białego rana :)</p>
+        </div>
+      </div>
+      <!-- Contact -->
+      <div class="row">
+        <div class="col">
+          <h1 class="app-g-bold app-g-upper-case app-g-decorator">Kontakt</h1>
+          <address>
+            Rezerwacje i organizacja imprez:<br />Gonia: +0048 123 123 123<br />Tomek: +0048 123 123 123<br />
+          <a  class="app-g-font-small" href="mailto:#">rezerwacje@ugoni.gmail</a>
+          </address>
+        </div>
+      </div>
     </div>
-    <div class="col-md-6">
-      <h1 class="app-g-bold app-g-upper-case app-g-decorator">Godziny otwarcia</h1>
-      <p>Imprezka do rana!<br />Zapraszamy codziennie od 20.00 do białego rana :)</p>
-    </div>
-  </div>
-  <!-- Contact | Contact form -->
-  <div class="row">
-    <div class="col-md-6">
-      <h1 class="app-g-bold app-g-upper-case app-g-decorator">Kontakt</h1>
-      <address>
-        Rezerwacje i organizacja imprez:<br />Gonia: +0048 123 123 123<br />Tomek: +0048 123 123 123<br />
-      <a  class="app-g-font-small" href="mailto:#">rezerwacje@ugoni.gmail</a>
-      </address>
-    </div>
+    <!-- Contact form -->
     <div class="col-md-6">
       <h1 class="app-g-bold app-g-upper-case app-g-decorator">Formularz Kontaktowy</h1>
-      <div>
-        Form here
-      </div>
+      <!-- Contact form component -->
+        <app-contact-form></app-contact-form>
     </div>
   </div>
   <!-- Google map | Building image -->
@@ -55,7 +64,9 @@
     </div>
     <div class="col-md-6">
       <h1 class="app-g-bold app-g-upper-case app-g-decorator">Tu jesteśmy</h1>
-      <div>Img budynku</div>
+      <div>
+        <img class="app-g-img-100" src="/assets/img/kontakt/building.jpg" alt="Widok na budynek klub u Goni"/>
+      </div>
     </div>
   </div>
 </div>

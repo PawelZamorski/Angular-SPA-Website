@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+// Angular Forms (Template-driven forms)
+import { FormsModule } from '@angular/forms';
 
 // Other Modules (installed via npm)
 // Font Awesome
@@ -15,6 +17,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 // Navigation Component
 import { NavigationComponent } from './navigation/navigation.component';
 // Angular Material components required by Navigation Component
@@ -37,6 +40,7 @@ import { KontaktComponent } from './subpages/kontakt/kontakt.component';
 import { ImprezyComponent } from './subpages/imprezy/imprezy.component';
 import { PrzyjeciaComponent } from './subpages/przyjecia/przyjecia.component';
 import { PageNotFoundComponent } from './subpages/page-not-found/page-not-found.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -53,12 +57,14 @@ import { PageNotFoundComponent } from './subpages/page-not-found/page-not-found.
     KontaktComponent,
     ImprezyComponent,
     PrzyjeciaComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ContactFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     // Font Awesome
     FontAwesomeModule,
     // Angular Material
@@ -72,7 +78,8 @@ import { PageNotFoundComponent } from './subpages/page-not-found/page-not-found.
     BrowserAnimationsModule,
     MatInputModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
